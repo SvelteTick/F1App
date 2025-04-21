@@ -1,0 +1,7 @@
+{
+  "name": "F1App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
