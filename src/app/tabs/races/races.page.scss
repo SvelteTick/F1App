@@ -1,0 +1,17 @@
+.ion-color-round {
+    color: rgb(231, 35, 35);
+  }
+
+.chevron {
+    color: rgb(231, 35, 35);
+    font-size: 25px;
+
+  }
+
+  .chevronColumn {
+    display: flex;               /* Enables Flexbox */
+    justify-content: flex-end;   /* Pushes content to the right */
+    align-items: center;         /* Centers content vertically */
+    padding-right: 10px;         /* Adds 15px padding on the right */
+    
+  }

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:src/app/tab3/tab3.page.html
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -15,3 +16,44 @@
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>
+=======
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>RACING SCHEDULE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">drivers</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-card *ngFor="let race of races">
+    <ion-grid size="12" class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card-header>
+            <ion-card-title class = ion-color-round>Round {{ race.round }} </ion-card-title>
+            <ion-card-subtitle
+              >{{ race.circuit.country }}</ion-card-subtitle>
+
+          <ion-card-content>
+            {{ race.raceName }} <br />
+            {{ race.schedule.race.date }} <br />
+            {{ race.schedule.race.time?.replace('Z', ' UTC') }}
+          </ion-card-content>
+        </ion-col>
+
+        <ion-col class="chevronColumn"> 
+          <ion-segment-button class="chevronButton" (click)="goToRaceDetails"> 
+            <ion-icon class="chevron" name="chevron-forward-sharp"></ion-icon>
+          </ion-segment-button>
+        </ion-col>
+      
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
+>>>>>>> Stashed changes:src/app/tabs/races/races.page.html

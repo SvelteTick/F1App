@@ -15,4 +15,6 @@ export class TabsPage {
   constructor() {
     addIcons({ triangle, ellipse, square });
   }
+
+  
 }
