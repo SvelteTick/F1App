@@ -1,20 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonSegmentButton, IonGrid, IonCardHeader, IonCard, IonRow, IonCol, IonCardSubtitle, IonCardContent, IonIcon } from '@ionic/angular/standalone';
+import { FOneApiService } from 'src/app/api/fone-api.service';
+import { IRacesApiResponse, IRaces } from 'src/app/api/interfaces';
+import { addIcons } from 'ionicons';
+import { chevronForwardSharp} from 'ionicons/icons';
 
 @Component({
   selector: 'app-races',
   templateUrl: './races.page.html',
   styleUrls: ['./races.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonIcon,
+    IonCardContent,
+    IonCardSubtitle,
+    IonCol,
+    IonRow,
+    IonCard,
+    IonCardHeader,
+    IonGrid,
+    IonSegmentButton,
+    IonCardTitle,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+  ]
 })
 export class RacesPage implements OnInit {
+  races: IRaces[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  
+  constructor(private fOneApiService: FOneApiService) {
+  addIcons({chevronForwardSharp});
+  
   }
+  ngOnInit() {
+    this.fOneApiService.fetchRaces().subscribe({
+      next: (response) => {
 
-}
+        console.log(response)
+        this.races = response.race;
+      },
+      error: (err) => {
+        console.error('Failed to fetch races:', err);
+      },
+    });
+    console.log(this.races)
+  }
+  }
