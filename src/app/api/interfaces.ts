@@ -32,7 +32,7 @@ export interface IRacesApiResponse {
     url: string;
     year: number;
   };
-  race: IRaces[];
+  races: IRaces[];
 }
 
 export interface IRaces {

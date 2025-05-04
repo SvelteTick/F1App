@@ -23,6 +23,7 @@ import { chevronForwardSharp} from 'ionicons/icons';
     IonGrid,
     IonSegmentButton,
     IonCardTitle,
+    IonContent,
     IonTitle,
     IonToolbar,
     CommonModule,
@@ -42,7 +43,7 @@ export class RacesPage implements OnInit {
       next: (response) => {
 
         console.log(response)
-        this.races = response.race;
+        this.races = response.races;
       },
       error: (err) => {
         console.error('Failed to fetch races:', err);

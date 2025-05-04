@@ -2,6 +2,8 @@
   <ion-title size="large">Races</ion-title>
 </ion-toolbar>
 
+<ion-content [fullscreen]="true">
+
 <ion-card *ngFor="let race of races">
   <ion-grid size="12" class="ion-no-padding">
     <ion-row>
@@ -32,4 +34,4 @@
     </ion-row>
   </ion-grid>
 </ion-card>
-<h1>Races</h1>
+</ion-content>
