@@ -1,0 +1,10 @@
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let item of [1, 2, 3]">
+    <ion-card-header>
+      <ion-card-title>Race {{ item }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Details for race {{ item }}.
+    </ion-card-content>
+  </ion-card>
+</ion-content>

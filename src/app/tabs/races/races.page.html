@@ -4,7 +4,7 @@
 
 <ion-content [fullscreen]="true">
 
-<ion-card *ngFor="let race of races">
+<ion-card *ngFor="let race of races let i = index">
   <ion-grid size="12" class="ion-no-padding">
     <ion-row>
 
@@ -26,10 +26,16 @@
 
       
       <ion-col class="chevronColumn">
-        <ion-segment-button class="chevronButton">
+
+        <ion-segment-button 
+          class="chevronButton" 
+          [routerLink]="['/tabs/races/racesDetailed', i]"
+          target="_self" >
           
           <ion-icon class="chevron" name="chevron-forward-sharp"></ion-icon>
+
         </ion-segment-button>
+
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -6,6 +6,7 @@ import { FOneApiService } from 'src/app/api/fone-api.service';
 import { IRacesApiResponse, IRaces } from 'src/app/api/interfaces';
 import { addIcons } from 'ionicons';
 import { chevronForwardSharp} from 'ionicons/icons';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-races',
@@ -28,8 +29,11 @@ import { chevronForwardSharp} from 'ionicons/icons';
     IonToolbar,
     CommonModule,
     FormsModule,
+    RouterModule,
   ]
+  
 })
+
 export class RacesPage implements OnInit {
   races: IRaces[] = [];
 
@@ -52,3 +56,5 @@ export class RacesPage implements OnInit {
     console.log(this.races)
   }
   }
+
+  export class RacesPageModule {}

@@ -17,6 +17,13 @@ export const routes: Routes = [
           import('./drivers/drivers.page').then((m) => m.DriversPage),
       },
       {
+        path: 'races/racesDetailed/:id',
+        loadComponent: () =>
+          import('./races/racesDetailed/races-detailed/races-detailed.component').then(
+            (m) => m.RacesDetailedComponent
+          ),
+      },
+      {
         path: '',
         redirectTo: '/tabs/races',
         pathMatch: 'full',
