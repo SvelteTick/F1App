@@ -6,7 +6,8 @@ import { FOneApiService } from 'src/app/api/fone-api.service';
 import { IRacesApiResponse, IRaces } from 'src/app/api/interfaces';
 import { addIcons } from 'ionicons';
 import { chevronForwardSharp} from 'ionicons/icons';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { RaceService } from './Services/race.service';
 
 @Component({
   selector: 'app-races',
@@ -38,7 +39,7 @@ export class RacesPage implements OnInit {
   races: IRaces[] = [];
 
   
-  constructor(private fOneApiService: FOneApiService) {
+  constructor(private fOneApiService: FOneApiService, private raceService: RaceService, private router: Router) {
   addIcons({chevronForwardSharp});
   
   }
@@ -55,6 +56,15 @@ export class RacesPage implements OnInit {
     });
     console.log(this.races)
   }
+
+  setRaceAndNavigate(race: IRaces) {
+    this.raceService.setRace(race)
+    this.router.navigate(["/tabs/races/racesDetailed"])
+  }
+
+
   }
 
   export class RacesPageModule {}
+
+  

@@ -1,8 +1,8 @@
 .chevronColumn {
-    display: flex;               /* Enables Flexbox */
-    justify-content: flex-end;   /* Pushes content to the right */
-    align-items: center;         /* Centers content vertically */
-    padding-right: 10px;         /* Adds 15px padding on the right */
+    display: flex;       
+    justify-content: flex-end; 
+    align-items: center;        
+    padding-right: 10px;       
   }
 
 
@@ -13,4 +13,13 @@
 
 .ion-color-round {
   color: rgb(231, 35, 35);
+}
+
+.header {
+  color: rgb(255, 255, 255);
+  background-color: rgb(231, 35, 35);
+
+}
+.country {
+  font-size: 20px;
 }

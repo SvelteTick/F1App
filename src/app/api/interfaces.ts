@@ -70,6 +70,22 @@ export interface IRaces {
     fastestLapYear: number;
     url: string;
   };
-  winner: string | null;
-  teamWinner: string | null;
+  winner: {
+    birthday: string | null;
+    country: string | null;
+    driverId: string | null;
+    name: string
+    number: number | null;
+    shortName: string | null;
+    surname: string | null;
+  }
+  teamWinner: {
+  constructorsChampionships: number;
+  country: string | null;
+  driversChampionships: number;
+  firstAppearance: string;
+  teamId: string;
+  teamName: string;
+  url: string;
+  }
 }[];

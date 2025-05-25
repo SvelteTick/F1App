@@ -19,6 +19,8 @@ import {
 } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { RaceService } from '../../Services/race.service';
+import { IRaces } from 'src/app/api/interfaces';
 
 @Component({
   selector: 'app-races-detailed',
@@ -27,6 +29,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [
     IonIcon,
+    IonHeader,
     IonCardContent,
     IonCardSubtitle,
     IonCol,
@@ -46,13 +49,13 @@ import { ActivatedRoute } from '@angular/router';
 })
   
 export class RacesDetailedComponent  implements OnInit {
-  raceId: number | null = null;
+  race: IRaces | null = null;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private raceService: RaceService) { }
 
   ngOnInit() {
-    this.raceId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Race ID:', this.raceId); 
+    this.race = this.raceService.getRace()
+    console.log(this.race)
   }
 
   

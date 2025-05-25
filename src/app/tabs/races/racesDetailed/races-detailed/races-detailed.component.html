@@ -1,10 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="header">{{ race?.circuit?.country }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let item of [1, 2, 3]">
+ 
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>Race {{ item }}</ion-card-title>
+      <ion-card-title *ngIf="race?.winner?.name">Winner: {{ race?.winner?.name }} {{ race?.winner?.surname }}</ion-card-title>
+      <ion-card-title>{{race?.circuit?.circuitName}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Details for race {{ item }}.
+
     </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+   <ion-card-title *ngIf="race?.schedule?.race?.date">
+        {{ race?.schedule?.race?.date}} Race {{ race?.schedule?.race?.time?.replace('Z', ' UTC')}}
+   </ion-card-title>
+  </ion-card>
+  <ion-card>  
+    <ion-card-title *ngIf="race?.schedule?.qualy?.date">
+        {{ race?.schedule?.qualy?.date}} Qualifying {{ race?.schedule?.qualy?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
+  </ion-card>
+  <ion-card> 
+    <ion-card-title *ngIf="race?.schedule?.fp3?.date">
+        {{ race?.schedule?.fp3?.date}} Practice 3 {{ race?.schedule?.fp3?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
+  </ion-card>
+  <ion-card> 
+    <ion-card-title *ngIf="race?.schedule?.fp2?.date">
+      {{ race?.schedule?.fp2?.date}} Practice 2 {{ race?.schedule?.fp2?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
+  </ion-card>
+  <ion-card> 
+    <ion-card-title *ngIf="race?.schedule?.fp1?.date">
+      {{ race?.schedule?.fp1?.date}} Practice 1 {{ race?.schedule?.fp1?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
+  </ion-card>
+  <ion-card>       
+    <ion-card-title *ngIf="race?.schedule?.sprintRace?.date">
+      {{ race?.schedule?.sprintRace?.date}} Sprint Race {{ race?.schedule?.sprintRace?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
+  </ion-card> 
+  <ion-card>        
+    <ion-card-title *ngIf="race?.schedule?.sprintQualy?.date">
+      {{ race?.schedule?.sprintQualy?.date}} Sprint Qualifying {{ race?.schedule?.sprintQualy?.time?.replace('Z', ' UTC')}}
+    </ion-card-title>
   </ion-card>
 </ion-content>
