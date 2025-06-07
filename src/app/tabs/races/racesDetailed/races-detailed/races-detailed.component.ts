@@ -15,8 +15,7 @@ import {
   IonCol,
   IonCardSubtitle,
   IonCardContent,
-  IonIcon,
-} from '@ionic/angular/standalone';
+  IonIcon, IonChip } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { RaceService } from '../../Services/race.service';
@@ -27,7 +26,7 @@ import { IRaces } from 'src/app/api/interfaces';
   templateUrl: './races-detailed.component.html',
   styleUrls: ['./races-detailed.component.scss'],
   standalone: true,
-  imports: [
+  imports: [IonChip, 
     IonIcon,
     IonHeader,
     IonCardContent,

@@ -2,7 +2,8 @@
     display: flex;       
     justify-content: flex-end; 
     align-items: center;        
-    padding-right: 10px;       
+    padding-right: 10px;    
+    min-width: 0;   
   }
 
 
@@ -13,13 +14,47 @@
 
 .ion-color-round {
   color: rgb(231, 35, 35);
+  white-space: nowrap;
+  font-size: 20px;
 }
 
 .header {
-  color: rgb(255, 255, 255);
   background-color: rgb(231, 35, 35);
-
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  padding-left: 10px;
 }
+
 .country {
   font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+}
+
+.date-column {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 2px dashed rgb(255, 255, 255);
+   color: rgb(255, 255, 255);
+
+}
+
+.ion-no-padding-bottom {
+  padding-bottom: 0px;
+}
+
+.content {
+  color: rgb(255, 255, 255);
+  
+}
+
+.row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
 }

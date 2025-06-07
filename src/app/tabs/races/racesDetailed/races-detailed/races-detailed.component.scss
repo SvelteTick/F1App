@@ -1,4 +1,72 @@
 .header {
-  color: rgb(231, 35, 35);
-  
+  background-color: rgb(231, 35, 35);
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.border {
+  border: 8px solid rgb(231, 35, 35);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 0px;
+  margin-right: 5%;
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+
+
+}
+.date-column {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 2px dashed rgb(255, 255, 255);
+   color: rgb(255, 255, 255);
+
+}
+
+.content {
+  color: rgb(255, 255, 255);
+
+}
+
+.header {
+  background-color: rgb(231, 35, 35);
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  padding-left: 10px;
+ 
+}
+
+.background-image  {
+
+  background-image: url(src/photos/Trackphoto.jpg);
+  scale: cover;
+  background-size: cover;
+}
+
+
+.winner {
+
+
+  background-color: transparent;
+  border: 3px double rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(231, 35, 35, 0.2), 0 0 0 4px rgba(255,215,0,0.15) inset;
+  padding: 10px;
+
+
+}
+
+.winner-text {
+  color:  rgb(231, 35, 35);
+  font-weight: bold;
 }

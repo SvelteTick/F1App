@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonSegmentButton, IonGrid, IonCardHeader, IonCard, IonRow, IonCol, IonCardSubtitle, IonCardContent, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonSegmentButton, IonGrid, IonCardHeader, IonCard, IonRow, IonCol, IonCardSubtitle, IonCardContent, IonIcon, IonBadge, IonChip } from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
 import { IRacesApiResponse, IRaces } from 'src/app/api/interfaces';
 import { addIcons } from 'ionicons';
@@ -14,7 +14,7 @@ import { RaceService } from './Services/race.service';
   templateUrl: './races.page.html',
   styleUrls: ['./races.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonChip, IonBadge, 
     IonIcon,
     IonCardContent,
     IonCardSubtitle,
@@ -67,4 +67,3 @@ export class RacesPage implements OnInit {
 
   export class RacesPageModule {}
 
-  

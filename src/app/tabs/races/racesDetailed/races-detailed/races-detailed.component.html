@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="header">{{ race?.circuit?.country }}</ion-title>
+    <ion-title size="large"  class="header">{{ race?.circuit?.country }}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
- 
-  <ion-card>
-    <ion-card-header>
+ <div class = "background-image" >  
+  <ion-card class="winner">
+    <ion-card-header class = winner-text>
       <ion-card-title *ngIf="race?.winner?.name">Winner: {{ race?.winner?.name }} {{ race?.winner?.surname }}</ion-card-title>
       <ion-card-title>{{race?.circuit?.circuitName}}</ion-card-title>
     </ion-card-header>
@@ -14,40 +14,140 @@
 
     </ion-card-content>
   </ion-card>
+</div>
+  <div class="border">
+    <ion-row class = "row" *ngIf="race?.schedule?.race?.date">
+      <ion-col size="2" class="date-column">
 
-  <ion-card>
-   <ion-card-title *ngIf="race?.schedule?.race?.date">
-        {{ race?.schedule?.race?.date}} Race {{ race?.schedule?.race?.time?.replace('Z', ' UTC')}}
-   </ion-card-title>
-  </ion-card>
-  <ion-card>  
-    <ion-card-title *ngIf="race?.schedule?.qualy?.date">
-        {{ race?.schedule?.qualy?.date}} Qualifying {{ race?.schedule?.qualy?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card>
-  <ion-card> 
-    <ion-card-title *ngIf="race?.schedule?.fp3?.date">
-        {{ race?.schedule?.fp3?.date}} Practice 3 {{ race?.schedule?.fp3?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card>
-  <ion-card> 
-    <ion-card-title *ngIf="race?.schedule?.fp2?.date">
-      {{ race?.schedule?.fp2?.date}} Practice 2 {{ race?.schedule?.fp2?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card>
-  <ion-card> 
-    <ion-card-title *ngIf="race?.schedule?.fp1?.date">
-      {{ race?.schedule?.fp1?.date}} Practice 1 {{ race?.schedule?.fp1?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card>
-  <ion-card>       
-    <ion-card-title *ngIf="race?.schedule?.sprintRace?.date">
-      {{ race?.schedule?.sprintRace?.date}} Sprint Race {{ race?.schedule?.sprintRace?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card> 
-  <ion-card>        
-    <ion-card-title *ngIf="race?.schedule?.sprintQualy?.date">
-      {{ race?.schedule?.sprintQualy?.date}} Sprint Qualifying {{ race?.schedule?.sprintQualy?.time?.replace('Z', ' UTC')}}
-    </ion-card-title>
-  </ion-card>
+          {{ race?.schedule?.race?.date?.slice(8, 10) }}  <br />
+          <ion-chip>{{ race?.schedule?.race?.date |date: 'MMM'}}</ion-chip>
+          
+      </ion-col>
+      <ion-col>
+       <ion-card>
+         <ion-card-title>
+          Race
+         </ion-card-title>
+         <ion-card-subtitle>
+          {{ race?.schedule?.race?.time?.replace('Z', ' UTC')}}
+         </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.qualy?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.qualy?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.qualy?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+            Qualifying
+          </ion-card-title>
+          <ion-card-subtitle>
+           {{ race?.schedule?.qualy?.time?.replace('Z', ' UTC')}}
+          </ion-card-subtitle>
+       </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.fp3?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.fp3?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.fp3?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+            Practice 3
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ race?.schedule?.fp3?.time?.replace('Z', ' UTC')}}
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.fp2?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.fp2?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.fp2?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+            Practice 2 
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ race?.schedule?.fp2?.time?.replace('Z', ' UTC')}}
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.fp1?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.fp1?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.fp1?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+            Practice 1
+          </ion-card-title>
+          <ion-card-subtitle>
+           {{ race?.schedule?.fp1?.time?.replace('Z', ' UTC')}}   
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.sprintRace?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.sprintRace?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.sprintRace?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+            Sprint Race 
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ race?.schedule?.sprintRace?.time?.replace('Z', ' UTC')}}            
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class = "row" *ngIf="race?.schedule?.sprintQualy?.date">
+      <ion-col size="2" class="date-column">
+      
+        {{ race?.schedule?.sprintQualy?.date?.slice(8, 10) }}  <br />
+        <ion-chip>{{ race?.schedule?.sprintQualy?.date |date: 'MMM'}}</ion-chip>
+
+      </ion-col>
+      <ion-col>
+        <ion-card> 
+          <ion-card-title>
+             Sprint Qualifying 
+          </ion-card-title>
+          <ion-card-subtitle>
+             {{ race?.schedule?.sprintQualy?.time?.replace('Z', ' UTC')}}
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </div>
 </ion-content>
