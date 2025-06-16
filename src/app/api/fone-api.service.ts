@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DriversResponse, IRacesApiResponse } from './interfaces';
+import { DriversResponse, IDriverStandingsApiResponse, IRacesApiResponse } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -22,7 +22,9 @@ export class FOneApiService {
     );
   }
 
-
-
-
+  fetchDriverStandings(): Observable<IDriverStandingsApiResponse> {
+    return this.http.get<IDriverStandingsApiResponse>(
+      `${environment.apiURL}/current/drivers-championship`
+    );
+  }
 }

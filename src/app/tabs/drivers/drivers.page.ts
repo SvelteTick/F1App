@@ -10,17 +10,17 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonCardContent,
-  IonCardSubtitle,
-} from '@ionic/angular/standalone';
+  IonCardSubtitle, IonGrid, IonRow, IonCol, IonChip } from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
-import { Driver } from 'src/app/api/interfaces';
+import { Driver, IDriverStandings } from 'src/app/api/interfaces';
+
 
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.page.html',
   styleUrls: ['./drivers.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonChip, IonCol, IonRow, IonGrid, 
     IonCardSubtitle,
     IonCardContent,
     IonCardTitle,
@@ -36,6 +36,7 @@ import { Driver } from 'src/app/api/interfaces';
 })
 export class DriversPage implements OnInit {
   drivers: Driver[] = [];
+  drivers_championship: IDriverStandings[] = []
 
   constructor(private fOneApiService: FOneApiService) {}
 
@@ -48,5 +49,18 @@ export class DriversPage implements OnInit {
         console.error('Failed to fetch drivers:', err);
       },
     });
-  }
+    this.fOneApiService.fetchDriverStandings().subscribe({
+      next: (response) => {
+
+        console.log(response)
+        this.drivers_championship = response.drivers_championship.sort((a, b) => a.position - b.position);
+      },
+      error: (err) => { 
+        console.error('Failed to fetch driver standings:', err);
+      }
+
+  });
+  
+}
+
 }

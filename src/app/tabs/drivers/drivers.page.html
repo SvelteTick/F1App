@@ -1,27 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>drivers</ion-title>
+    <ion-title size="large" class="header" >Drivers</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">drivers</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
+  <ion-card *ngFor="let standing of drivers_championship let i = index" >
 
-  <ion-card *ngFor="let driver of drivers">
-    <ion-card-header>
-      <ion-card-title>{{ driver.name }} {{ driver.surname }}</ion-card-title>
-      <ion-card-subtitle
-        >{{ driver.nationality }} • #{{ driver.number }}</ion-card-subtitle
-      >
-    </ion-card-header>
+    <ion-grid size="12" class="ion-no-padding">
+      <ion-row class = "row">
+        <ion-col class = "col1" size="1.5">
+          
+          {{ standing.position }}
+         
+        </ion-col>
+        <ion-col class = "col2" size="8">
 
-    <ion-card-content>
-      Birthday: {{ driver.birthday }} <br />
-      Short name: {{ driver.shortName }} <br />
-    </ion-card-content>
+         <ion-card-header class="col2-padding col2-Name">
+           {{ standing.driver.name }} 
+         </ion-card-header>
+         <ion-card-header class="col2-padding col2-surename">
+           {{ standing.driver.surname}} <br><br>
+         </ion-card-header>
+         <ion-card-subtitle class="col2-padding">
+            {{ standing.team.teamId.replace('_', ' ') }}
+         </ion-card-subtitle>
+        </ion-col> 
+
+        <ion-col class = "col3 drivers-background" size="2.5"> 
+          <ion-chip class = "Chip-Points"> 
+            {{ standing.points }}PTS
+          </ion-chip>
+        </ion-col>
+        
+  
+    </ion-row>
+    </ion-grid>
   </ion-card>
 </ion-content>

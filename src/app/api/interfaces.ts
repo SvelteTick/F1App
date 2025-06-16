@@ -89,3 +89,42 @@ export interface IRaces {
   url: string;
   }
 }[];
+
+  
+export interface IDriverStandingsApiResponse {
+  api: string;
+  url: string;
+  limit: number;
+  total: number;
+  season: number;
+  championshipId: string;
+  drivers_championship: IDriverStandings[];
+}
+
+export interface IDriverStandings {
+  classificationId: number;
+  driverId: string;
+  teamId: string;
+  points: number;
+  position: number;
+  wins: number;
+  driver: {
+    name: string;
+    surname: string;
+    nationality: string;
+    birthday: string;
+    number: number;
+    shortName: string;
+    url: string;
+  };
+  team: {
+    teamId: string;
+    teamName: string;
+    country: string;
+    firstAppareance: number;
+    constructorsChampionships: number;
+    driversChampionships: number;
+    url: string;
+  };
+};
+
