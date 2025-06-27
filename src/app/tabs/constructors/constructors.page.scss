@@ -1,14 +1,6 @@
-
-.header {
-  background-color: rgb(231, 35, 35);
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  padding-left: 10px;
-}
 .row {
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .col1 {
@@ -23,7 +15,7 @@
 }
 
 .col2-Name {
-    font-size: 20px;
+  font-size: 20px;
   color: rgb(255, 255, 255);
 }
 
@@ -31,17 +23,14 @@
   font-size: 30px;
   color: rgb(255, 255, 255);
   font-weight: bold;
- 
 }
 
 .col2-padding {
-  
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
-
 
 .col3 {
   font-size: 15px;
@@ -55,11 +44,11 @@
 
 .drivers-background {
   background: repeating-linear-gradient(
-    135deg,          
-    #5c5858,          
-    #5c5858 2px,         
-    #1c1c1d 2px,      
-    #1c1c1d 10px      
+    135deg,
+    #5c5858,
+    #5c5858 2px,
+    #1c1c1d 2px,
+    #1c1c1d 10px
   );
 }
 

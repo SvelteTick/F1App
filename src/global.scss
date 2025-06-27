@@ -34,8 +34,13 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.always.css";
 
 .fontFamily {
-  font-family:  sans-serif;
+  font-family: sans-serif;
+}
+
+ion-toolbar {
+  --background: #e72323;
+  --color: #ffffff;
 }

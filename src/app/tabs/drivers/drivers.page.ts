@@ -9,13 +9,12 @@ import {
   IonCard,
   IonCardHeader,
   IonCardSubtitle,
-  IonGrid,
-  IonRow, 
-  IonCol, 
-  IonChip } from '@ionic/angular/standalone';
+  IonChip,
+  IonCardTitle,
+  IonCardContent,
+} from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
 import { Driver, IDriverStandings } from 'src/app/api/interfaces';
-
 
 @Component({
   selector: 'app-drivers',
@@ -23,10 +22,9 @@ import { Driver, IDriverStandings } from 'src/app/api/interfaces';
   styleUrls: ['./drivers.page.scss'],
   standalone: true,
   imports: [
-    IonChip, 
-    IonCol, 
-    IonRow, 
-    IonGrid, 
+    IonCardContent,
+    IonChip,
+    IonCardTitle,
     IonCardSubtitle,
     IonCardHeader,
     IonCard,
@@ -40,7 +38,7 @@ import { Driver, IDriverStandings } from 'src/app/api/interfaces';
 })
 export class DriversPage implements OnInit {
   drivers: Driver[] = [];
-  drivers_championship: IDriverStandings[] = []
+  drivers_championship: IDriverStandings[] = [];
 
   constructor(private fOneApiService: FOneApiService) {}
 
@@ -55,16 +53,28 @@ export class DriversPage implements OnInit {
     });
     this.fOneApiService.fetchDriverStandings().subscribe({
       next: (response) => {
-
-        console.log(response)
-        this.drivers_championship = response.drivers_championship.sort((a, b) => a.position - b.position);
+        console.log(response);
+        this.drivers_championship = response.drivers_championship.sort(
+          (a, b) => a.position - b.position
+        );
       },
-      error: (err) => { 
+      error: (err) => {
         console.error('Failed to fetch driver standings:', err);
-      }
+      },
+    });
+  }
 
-  });
-  
-}
-
+  getMedalName(position: number): string {
+    console.log(position);
+    switch (position) {
+      case 1:
+        return 'gold';
+      case 2:
+        return 'silver';
+      case 3:
+        return 'bronze';
+      default:
+        return '';
+    }
+  }
 }

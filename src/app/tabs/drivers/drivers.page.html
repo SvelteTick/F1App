@@ -1,40 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title size="large" class="header" >Drivers</ion-title>
+    <ion-title size="large">Drivers</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let standing of drivers_championship let i = index" >
+  <ion-card *ngFor="let standing of drivers_championship let i = index">
+    <ion-card-header>
+      <div class="flex-container">
+        <div>
+          <ion-card-subtitle> {{ standing.driver.name }}</ion-card-subtitle>
+          <ion-card-title> {{ standing.driver.surname}} </ion-card-title>
+        </div>
+        <img
+          *ngIf="i < 3"
+          class="position-medal-icon"
+          [src]="'./../../../assets/icon/' + (i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze') + '-medal.png'"
+          [alt]="'Position ' + standing.position"
+        />
+      </div>
+    </ion-card-header>
 
-    <ion-grid size="12" class="ion-no-padding">
-      <ion-row class = "row">
-        <ion-col class = "col1" size="1.5">
-          
-          {{ standing.position }}
-         
-        </ion-col>
-        <ion-col class = "col2" size="8">
-
-         <ion-card-header class="col2-padding col2-Name">
-           {{ standing.driver.name }} 
-         </ion-card-header>
-         <ion-card-header class="col2-padding col2-surename">
-           {{ standing.driver.surname}} <br><br>
-         </ion-card-header>
-         <ion-card-subtitle class="col2-padding">
-            {{ standing.team.teamId.replace('_', ' ') }}
-         </ion-card-subtitle>
-        </ion-col> 
-
-        <ion-col class = "col3 drivers-background" size="2.5"> 
-          <ion-chip class = "Chip-Points"> 
-            {{ standing.points }}PTS
-          </ion-chip>
-        </ion-col>
-        
-  
-    </ion-row>
-    </ion-grid>
+    <ion-card-content>
+      <ion-card-subtitle>
+        <div class="flex-footer-container">
+          {{ standing.team.teamId.replace('_', ' ') }}
+          <ion-chip> {{ standing.points }} PTS </ion-chip>
+        </div>
+      </ion-card-subtitle>
+    </ion-card-content>
   </ion-card>
 </ion-content>

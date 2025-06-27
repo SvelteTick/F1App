@@ -1,58 +1,62 @@
-<ion-toolbar >
-  <ion-title size="large" class="header" >RACING</ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large">Racing</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
-
-<ion-card *ngFor="let race of races let i = index"
-  #raceCard
-  [class.next-race]="i === nextRaceIndex"
->
-
-  <ion-grid size="12" class="ion-no-padding">
-    <ion-row class = "row">
-      <ion-col size="2" class="date-column" *ngIf="race?.schedule?.sprintQualy?.date">
-
-          {{ race?.schedule?.sprintQualy?.date?.slice(8, 10)}}-{{ race.schedule.race.date.slice(8, 10) }}  <br />
+  <ion-card
+    *ngFor="let race of races let i = index"
+    #raceCard
+    [class.next-race]="i === nextRaceIndex"
+  >
+    <ion-grid size="12" class="ion-no-padding">
+      <ion-row class="row">
+        <ion-col
+          size="2"
+          class="date-column"
+          *ngIf="race?.schedule?.sprintQualy?.date"
+        >
+          {{ race?.schedule?.sprintQualy?.date?.slice(8, 10)}}-{{
+          race.schedule.race.date.slice(8, 10) }} <br />
           <ion-chip>{{ race.schedule.race.date |date: 'MMM'}}</ion-chip>
-          
-      </ion-col>
-      <ion-col size="2" class="date-column" *ngIf="race?.schedule?.sprintQualy?.date === null">
-
-          {{ race?.schedule?.fp1?.date?.slice(8, 10) }}-{{ race.schedule.race.date.slice(8, 10) }} <br />
+        </ion-col>
+        <ion-col
+          size="2"
+          class="date-column"
+          *ngIf="race?.schedule?.sprintQualy?.date === null"
+        >
+          {{ race?.schedule?.fp1?.date?.slice(8, 10) }}-{{
+          race.schedule.race.date.slice(8, 10) }} <br />
           <ion-chip>{{ race.schedule.race.date |date: 'MMM'}}</ion-chip>
-          
-      </ion-col>
-      
-      <ion-col>
-        <ion-card-header class="ion-no-padding-bottom">
-         
-          <ion-card-title class="ion-color-round">Round {{ race.round }}</ion-card-title>
-     
-          <ion-card-subtitle class="country">{{ race.circuit.country }}</ion-card-subtitle>
-        </ion-card-header>
+        </ion-col>
 
-        <ion-card-content class="content">
-      
-          {{ race.raceName }}
-         
-        </ion-card-content>
-      </ion-col>
+        <ion-col>
+          <ion-card-header class="ion-no-padding-bottom">
+            <ion-card-title class="ion-color-round"
+              >Round {{ race.round }}</ion-card-title
+            >
 
-      
-      <ion-col class="chevronColumn">
+            <ion-card-subtitle class="country"
+              >{{ race.circuit.country }}</ion-card-subtitle
+            >
+          </ion-card-header>
 
-        <ion-segment-button 
-          class="chevronButton" 
-          (click)="setRaceAndNavigate(race)"
-          target="_self" >
-          
-          <ion-icon class="chevron" name="chevron-forward-sharp"></ion-icon>
+          <ion-card-content class="content">
+            {{ race.raceName }}
+          </ion-card-content>
+        </ion-col>
 
-        </ion-segment-button>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-card>
+        <ion-col class="chevronColumn">
+          <ion-segment-button
+            class="chevronButton"
+            (click)="setRaceAndNavigate(race)"
+            target="_self"
+          >
+            <ion-icon class="chevron" name="chevron-forward-sharp"></ion-icon>
+          </ion-segment-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

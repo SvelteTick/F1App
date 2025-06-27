@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { DriversResponse, IConstructorsStandingsApiResponse, IDriverStandingsApiResponse, IRacesApiResponse } from './interfaces';
+import {
+  DriversResponse,
+  IConstructorsStandingsApiResponse,
+  IDriverStandingsApiResponse,
+  IRacesApiResponse,
+} from './interfaces';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,9 +22,7 @@ export class FOneApiService {
   }
 
   fetchRaces(): Observable<IRacesApiResponse> {
-    return this.http.get<IRacesApiResponse>(
-      `${environment.apiURL}/current`
-    );
+    return this.http.get<IRacesApiResponse>(`${environment.apiURL}/current`);
   }
 
   fetchDriverStandings(): Observable<IDriverStandingsApiResponse> {
@@ -27,11 +30,9 @@ export class FOneApiService {
       `${environment.apiURL}/current/drivers-championship`
     );
   }
-
-  // fetchConstructorsStandings(): Observable<IConstructorsStandingsApiResponse> {
-  //   return this.http.get<IConstructorsStandingsApiResponse>(
-  //     `${environment.apiURL}/current/constructors-championship`
-  //   );
-  // }
-
+  fetchConstructorsStandings(): Observable<IConstructorsStandingsApiResponse> {
+    return this.http.get<IConstructorsStandingsApiResponse>(
+      `${environment.apiURL}/current/constructors-championship`
+    );
+  }
 }
