@@ -8,9 +8,11 @@ import {
   IonToolbar,
   IonCard,
   IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
-  IonCardSubtitle, IonGrid, IonRow, IonCol, IonChip } from '@ionic/angular/standalone';
+  IonCardSubtitle,
+  IonGrid,
+  IonRow, 
+  IonCol, 
+  IonChip } from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
 import { Driver, IDriverStandings } from 'src/app/api/interfaces';
 
@@ -20,10 +22,12 @@ import { Driver, IDriverStandings } from 'src/app/api/interfaces';
   templateUrl: './drivers.page.html',
   styleUrls: ['./drivers.page.scss'],
   standalone: true,
-  imports: [IonChip, IonCol, IonRow, IonGrid, 
+  imports: [
+    IonChip, 
+    IonCol, 
+    IonRow, 
+    IonGrid, 
     IonCardSubtitle,
-    IonCardContent,
-    IonCardTitle,
     IonCardHeader,
     IonCard,
     IonContent,

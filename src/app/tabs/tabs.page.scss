@@ -5,3 +5,15 @@
 .tab-selected {
     color: rgb(231, 35, 35);
 }
+
+.constructorImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px; // match IonIcon size
+  width: 24px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, QueryList} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonSegmentButton, IonGrid, IonCardHeader, IonCard, IonRow, IonCol, IonCardSubtitle, IonCardContent, IonIcon, IonBadge, IonChip } from '@ionic/angular/standalone';
+import { IonContent, IonTitle, IonToolbar, IonCardTitle, IonSegmentButton, IonGrid, IonCardHeader, IonCard, IonRow, IonCol, IonCardSubtitle, IonCardContent, IonIcon, IonBadge, IonChip } from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
-import { IRacesApiResponse, IRaces } from 'src/app/api/interfaces';
+import { IRaces } from 'src/app/api/interfaces';
 import { addIcons } from 'ionicons';
 import { chevronForwardSharp} from 'ionicons/icons';
 import { Router, RouterModule } from '@angular/router';
@@ -14,7 +14,8 @@ import { RaceService } from './Services/race.service';
   templateUrl: './races.page.html',
   styleUrls: ['./races.page.scss'],
   standalone: true,
-  imports: [IonChip, IonBadge, 
+  imports: [
+    IonChip,
     IonIcon,
     IonCardContent,
     IonCardSubtitle,
@@ -37,11 +38,12 @@ import { RaceService } from './Services/race.service';
 
 export class RacesPage implements OnInit {
   races: IRaces[] = [];
+  nextRaceIndex: number = 0;
 
-  
+   @ViewChildren('raceCard', { read: ElementRef }) raceCards!: QueryList<ElementRef>;
+
   constructor(private fOneApiService: FOneApiService, private raceService: RaceService, private router: Router) {
-  addIcons({chevronForwardSharp});
-  
+    addIcons({ chevronForwardSharp });
   }
   ngOnInit() {
     this.fOneApiService.fetchRaces().subscribe({
@@ -49,6 +51,11 @@ export class RacesPage implements OnInit {
 
         console.log(response)
         this.races = response.races;
+        this.nextRaceIndex = this.races.findIndex(race => {
+        const raceDate = new Date(race.schedule.race.date + 'T' + race.schedule.race.time);
+        return raceDate > new Date();
+        });
+        
       },
       error: (err) => {
         console.error('Failed to fetch races:', err);
@@ -56,6 +63,23 @@ export class RacesPage implements OnInit {
     });
     console.log(this.races)
   }
+
+  ngAfterViewInit() {
+  this.raceCards.changes.subscribe(() => {
+    this.scrollToNextRace();
+  });
+  this.scrollToNextRace();
+}
+
+scrollToNextRace() {
+  setTimeout(() => {
+    const cards = this.raceCards.toArray();
+    if (cards && cards[this.nextRaceIndex]) {
+      cards[this.nextRaceIndex].nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 100);
+}
+
 
   setRaceAndNavigate(race: IRaces) {
     this.raceService.setRace(race)

@@ -4,7 +4,10 @@
 
 <ion-content [fullscreen]="true">
 
-<ion-card *ngFor="let race of races let i = index">
+<ion-card *ngFor="let race of races let i = index"
+  #raceCard
+  [class.next-race]="i === nextRaceIndex"
+>
 
   <ion-grid size="12" class="ion-no-padding">
     <ion-row class = "row">
