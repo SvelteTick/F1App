@@ -6,7 +6,7 @@
 <ion-content [fullscreen]="true">
  <div class = "background-image" >  
   <ion-card class="winner">
-    <ion-card-header class = winner-text>
+    <ion-card-header>
       <ion-card-title *ngIf="race?.winner?.name">Winner: {{ race?.winner?.name }} {{ race?.winner?.surname }}</ion-card-title>
       <ion-card-title>{{race?.circuit?.circuitName}}</ion-card-title>
     </ion-card-header>

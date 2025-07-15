@@ -6,13 +6,12 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonCol,
-  IonGrid,
   IonCardHeader,
   IonChip,
   IonCard,
-  IonRow,
-} from '@ionic/angular/standalone';
+  IonCardTitle,
+  IonCardContent, 
+  IonCardSubtitle } from '@ionic/angular/standalone';
 import { FOneApiService } from 'src/app/api/fone-api.service';
 import { IConstructorsStandings } from 'src/app/api/interfaces';
 
@@ -22,12 +21,12 @@ import { IConstructorsStandings } from 'src/app/api/interfaces';
   styleUrls: ['./constructors.page.scss'],
   standalone: true,
   imports: [
-    IonRow,
+    IonCardSubtitle, 
+    IonCardContent, 
+    IonCardTitle,
     IonCard,
     IonChip,
     IonCardHeader,
-    IonGrid,
-    IonCol,
     IonContent,
     IonHeader,
     IonTitle,

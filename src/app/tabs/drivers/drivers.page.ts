@@ -63,18 +63,4 @@ export class DriversPage implements OnInit {
       },
     });
   }
-
-  getMedalName(position: number): string {
-    console.log(position);
-    switch (position) {
-      case 1:
-        return 'gold';
-      case 2:
-        return 'silver';
-      case 3:
-        return 'bronze';
-      default:
-        return '';
-    }
-  }
 }
