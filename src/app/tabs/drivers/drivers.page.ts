@@ -39,6 +39,7 @@ import { Driver, IDriverStandings } from 'src/app/api/interfaces';
 export class DriversPage implements OnInit {
   drivers: Driver[] = [];
   drivers_championship: IDriverStandings[] = [];
+  
 
   constructor(private fOneApiService: FOneApiService) {}
 
@@ -63,4 +64,5 @@ export class DriversPage implements OnInit {
       },
     });
   }
+  
 }

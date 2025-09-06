@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { Location } from '@angular/common';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
@@ -8,4 +10,12 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 })
 export class AppComponent {
   constructor() {}
+}
+
+export class YourPageComponent {
+  constructor(private platform: Platform, private location: Location) {
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.location.back();
+    });
+  }
 }

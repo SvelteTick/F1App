@@ -6,7 +6,6 @@
     min-width: 0;   
   }
 
-
 .chevron {
   color: rgb(231, 35, 35);
   font-size: 25px;
@@ -21,8 +20,8 @@
 .header {
   background-color: rgb(231, 35, 35);
   color: rgb(255, 255, 255);
-  padding: 5px;
-  padding-left: 10px;
+  font-weight: bold;
+  font-size: 28px;
 }
 
 .country {
@@ -41,7 +40,6 @@
   flex-direction: column;
   border-right: 2px dashed rgb(255, 255, 255);
   color: rgb(255, 255, 255);
-
 }
 
 .ion-no-padding-bottom {
@@ -50,13 +48,11 @@
 
 .content {
   color: rgb(255, 255, 255);
-  
 }
 
 .row {
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .currentCol {
@@ -84,3 +80,4 @@
   border: 3px solid rgb(231, 35, 35);
   box-shadow: 0 0 12px rgb(231, 35, 35);
 }
+

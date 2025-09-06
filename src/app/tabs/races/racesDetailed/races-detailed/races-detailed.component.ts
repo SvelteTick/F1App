@@ -7,17 +7,14 @@ import {
   IonTitle,
   IonToolbar,
   IonCardTitle,
-  IonSegmentButton,
-  IonGrid,
   IonCardHeader,
   IonCard,
   IonRow,
   IonCol,
   IonCardSubtitle,
   IonCardContent,
-  IonIcon, IonChip } from '@ionic/angular/standalone';
+  IonChip } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
 import { RaceService } from '../../Services/race.service';
 import { IRaces } from 'src/app/api/interfaces';
 

@@ -1,9 +1,20 @@
-.ionicon {
-    color: rgb(240, 35, 35);
+
+ion-tab-button.tab-selected,
+ion-tab-button:hover,
+ion-tab-button:focus {
+  --color: rgb(231, 35, 35);
 }
 
-.tab-selected {
-    color: rgb(231, 35, 35);
+ion-tab-button.tab-selected ion-icon,
+ion-tab-button:hover ion-icon,
+ion-tab-button:focus ion-icon {
+  color: rgb(231, 35, 35);
+}
+
+ion-tab-button.tab-selected ion-label,
+ion-tab-button:hover ion-label,
+ion-tab-button:focus ion-label {
+  color: rgb(231, 35, 35);
 }
 
 .constructorImage {
@@ -17,3 +28,4 @@
   width: 100%;
   object-fit: contain;
 }
+

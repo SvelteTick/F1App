@@ -59,8 +59,10 @@ import { RaceService } from './Services/race.service';
   ],
 })
 export class RacesPage implements OnInit {
+  isOnline = true;
   races: IRaces[] = [];
   nextRaceIndex: number = 0;
+  
 
   @ViewChildren('raceCard', { read: ElementRef })
   raceCards!: QueryList<ElementRef>;
@@ -73,6 +75,12 @@ export class RacesPage implements OnInit {
     addIcons({ chevronForwardSharp });
   }
   ngOnInit() {
+    this.isOnline = navigator.onLine;
+    window.addEventListener('online', () => this.isOnline = true);
+    window.addEventListener('offline', () => this.isOnline = false);
+
+    if (this.isOnline) {
+  
     this.fOneApiService.fetchRaces().subscribe({
       next: (response) => {
         console.log(response);
@@ -89,7 +97,7 @@ export class RacesPage implements OnInit {
       },
     });
     console.log(this.races);
-  }
+  }}
 
   ngAfterViewInit() {
     this.raceCards.changes.subscribe(() => {

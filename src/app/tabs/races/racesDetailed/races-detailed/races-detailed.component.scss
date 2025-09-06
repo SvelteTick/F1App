@@ -1,8 +1,9 @@
 .header {
   background-color: rgb(231, 35, 35);
   color: rgb(255, 255, 255);
-  padding: 5px;
-  padding-left: 10px;
+  margin-top: 12px;
+  padding-left: 20px;
+
 }
 
 .border {
@@ -36,9 +37,10 @@
 .header {
   background-color: rgb(231, 35, 35);
   color: rgb(255, 255, 255);
-  padding: 5px;
-  padding-left: 10px;
+  font-weight: bold;
+  font-size: 28px;
 }
+
 
 .background-image  {
   background-image: url(src/photos/Trackphoto.jpg);
@@ -47,7 +49,7 @@
 }
 
 .winner {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   border: 3px double rgb(255, 255, 255);
   border-radius: 16px;
   padding: 10px;

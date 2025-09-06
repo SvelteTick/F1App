@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title size="large">Racing</ion-title>
+    <ion-title class = "header">RACING</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <div *ngIf="!isOnline" class="error-message">
+    No connection to the internet.
+  </div>
   <ion-card
     *ngFor="let race of races let i = index"
     #raceCard
@@ -15,20 +18,11 @@
         <ion-col
           size="2"
           class="date-column"
-          *ngIf="race?.schedule?.sprintQualy?.date"
+          *ngIf="race?.schedule?.fp1?.date"
         >
-          {{ race?.schedule?.sprintQualy?.date?.slice(8, 10)}}-{{
-          race.schedule.race.date.slice(8, 10) }} <br />
-          <ion-chip>{{ race.schedule.race.date |date: 'MMM'}}</ion-chip>
-        </ion-col>
-        <ion-col
-          size="2"
-          class="date-column"
-          *ngIf="race?.schedule?.sprintQualy?.date === null"
-        >
-          {{ race?.schedule?.fp1?.date?.slice(8, 10) }}-{{
-          race.schedule.race.date.slice(8, 10) }} <br />
-          <ion-chip>{{ race.schedule.race.date |date: 'MMM'}}</ion-chip>
+          {{ (race.schedule.fp1.date + 'T' + race.schedule.fp1.time) | date:'dd' }}-{{
+          (race.schedule.race.date + 'T' + race.schedule.race.time) | date:'dd' }} <br />
+          <ion-chip>{{ race.schedule.race.date | date: 'MMM'}}</ion-chip>
         </ion-col>
 
         <ion-col>
@@ -37,9 +31,10 @@
               >Round {{ race.round }}</ion-card-title
             >
 
-            <ion-card-subtitle class="country"
-              >{{ race.circuit.country }}</ion-card-subtitle
-            >
+            <ion-card-subtitle class="country">
+              {{ race.circuit.country }}
+            </ion-card-subtitle>
+
           </ion-card-header>
 
           <ion-card-content class="content">
