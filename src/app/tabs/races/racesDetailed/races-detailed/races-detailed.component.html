@@ -19,7 +19,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.race?.date">
       <ion-col size="2" class="date-column">
 
-          {{ race?.schedule?.race?.date?.slice(8, 10) }}  <br />
+          {{ race?.schedule?.race?.date  | date: 'dd'}}  <br />
           <ion-chip>{{ race?.schedule?.race?.date |date: 'MMM'}}</ion-chip>
           
       </ion-col>
@@ -38,7 +38,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.qualy?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.qualy?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.qualy?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ race?.schedule?.qualy?.date |date: 'MMM'}}</ion-chip>
 
       </ion-col>
@@ -48,7 +48,7 @@
             Qualifying
           </ion-card-title>
           <ion-card-subtitle>
-           {{ (race?.schedule?.race?.date + 'T' + race?.schedule?.race?.time) | date:'shortTime' }}
+           {{ (race?.schedule?.qualy?.date + 'T' + race?.schedule?.qualy?.time) | date:'shortTime' }}
           </ion-card-subtitle>
        </ion-card>
       </ion-col>
@@ -57,7 +57,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.fp3?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.fp3?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.fp3?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ race?.schedule?.fp3?.date |date: 'MMM'}}</ion-chip>
 
       </ion-col>
@@ -76,7 +76,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.fp2?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.fp2?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.fp2?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ race?.schedule?.fp2?.date |date: 'MMM'}}</ion-chip>
 
       </ion-col>
@@ -95,7 +95,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.sprintRace?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.sprintRace?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.sprintRace?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ (race?.schedule?.sprintRace?.date + 'T' + race?.schedule?.sprintRace?.time) |date: 'MMM'}}</ion-chip>
 
       </ion-col>
@@ -114,7 +114,7 @@
     <ion-row class = "row" *ngIf="race?.schedule?.sprintQualy?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.sprintQualy?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.sprintQualy?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ (race?.schedule?.sprintQualy?.date + 'T' + race?.schedule?.sprintQualy?.time) |date: 'MMM'}}</ion-chip>
 
       </ion-col>
@@ -133,7 +133,7 @@
         <ion-row class = "row" *ngIf="race?.schedule?.fp1?.date">
       <ion-col size="2" class="date-column">
       
-        {{ race?.schedule?.fp1?.date?.slice(8, 10) }}  <br />
+        {{ race?.schedule?.fp1?.date  | date: 'dd'}}  <br />
         <ion-chip>{{ race?.schedule?.fp1?.date |date: 'MMM'}}</ion-chip>
 
       </ion-col>

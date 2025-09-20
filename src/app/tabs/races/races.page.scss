@@ -1,3 +1,10 @@
+.header {
+  font-size: 28px;
+  font-weight: bolder;
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
 .chevronColumn {
     display: flex;       
     justify-content: flex-end; 
@@ -15,13 +22,6 @@
   color: rgb(231, 35, 35);
   white-space: nowrap;
   font-size: 20px;
-}
-
-.header {
-  background-color: rgb(231, 35, 35);
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 28px;
 }
 
 .country {

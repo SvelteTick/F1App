@@ -5,9 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div *ngIf="!isOnline" class="error-message">
-    No connection to the internet.
-  </div>
+  
   <ion-card
     *ngFor="let race of races let i = index"
     #raceCard

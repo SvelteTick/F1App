@@ -1,4 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { PLATFORM_ID } from '@angular/core';
+import { Storage  } from '@ionic/storage-angular';
 import {
   RouteReuseStrategy,
   provideRouter,
@@ -20,5 +22,6 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(),
+    Storage  
   ],
 });
