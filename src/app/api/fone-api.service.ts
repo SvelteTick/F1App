@@ -8,13 +8,12 @@ import {
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
-import { LocalNotifications } from '@capacitor/local-notifications';
 import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class FOneApiService { 
+export class FOneApiService {
   private _storageReady: Promise<void>;
 
   constructor(private http: HttpClient, private storage: Storage) {
@@ -25,18 +24,17 @@ export class FOneApiService {
     (this.storage as any)._dbConfig = {
       name: '__mydb',
       storeName: 'keyvaluepairs',
-      driverOrder: ['indexeddb', 'localstorage']
-      
+      driverOrder: ['indexeddb', 'localstorage'],
     };
 
-     await this.storage.create();
+    await this.storage.create();
   }
 
   private async ensureReady() {
     return this._storageReady;
   }
 
-    async setValue(key: string, value: any) {
+  async setValue(key: string, value: any) {
     await this.ensureReady();
     return this.storage.set(key, value);
   }
@@ -46,17 +44,17 @@ export class FOneApiService {
     return this.storage.get(key);
   }
 
-  async fetchRacesWithCache(): Promise<IRacesApiResponse[]> {
+  async fetchRacesWithCache(): Promise<IRacesApiResponse> {
     await this.ensureReady();
 
     if (navigator.onLine) {
       const response = await firstValueFrom(
-        this.http.get<any[]>(`${environment.apiURL}/current`)
+        this.http.get<IRacesApiResponse>(`${environment.apiURL}/current`)
       );
       await this.storage.set('racesData', response);
       return response;
     } else {
-      return (await this.storage.get('racesData')) ?? [];
+      return (await this.storage.get('racesData')) ?? { races: [] };
     }
   }
 
@@ -81,34 +79,4 @@ export class FOneApiService {
       `${environment.apiURL}/current/constructors-championship`
     );
   }
-
-  async scheduleNextRaceNotification(races: any[]) {
-    await this.ensureReady();
-
-    const now = new Date();
-    const nextRace = races.find(race => {
-      const raceDate = new Date(race.schedule.race.date + 'T' + race.schedule.race.time + 'Z');
-      return raceDate > now;
-    });
-
-    if (nextRace) {
-      const raceDate = new Date(nextRace.schedule.race.date + 'T' + nextRace.schedule.race.time + 'Z');
-      const notificationTime = new Date(raceDate);
-      notificationTime.setDate(raceDate.getDate() - 1);
-
-      const localTime = raceDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-      await LocalNotifications.schedule({
-        notifications: [
-          {
-            title: 'F1 Race Reminder',
-            body: `The next F1 race (${nextRace.raceName}) is tomorrow at ${localTime}!`,
-            id: 1,
-            schedule: { at: notificationTime },
-          }
-        ]
-      });
-    }
-  }
 }
-

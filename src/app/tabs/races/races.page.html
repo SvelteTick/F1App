@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class = "header">RACING</ion-title>
+    <ion-title>RACING</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="sendTestNotification()">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
   <ion-card
     *ngFor="let race of races let i = index"
     #raceCard
@@ -13,13 +17,10 @@
   >
     <ion-grid size="12" class="ion-no-padding">
       <ion-row class="row">
-        <ion-col
-          size="2"
-          class="date-column"
-          *ngIf="race?.schedule?.fp1?.date"
-        >
-          {{ (race.schedule.fp1.date + 'T' + race.schedule.fp1.time) | date:'dd' }}-{{
-          (race.schedule.race.date + 'T' + race.schedule.race.time) | date:'dd' }} <br />
+        <ion-col size="2" class="date-column" *ngIf="race?.schedule?.fp1?.date">
+          {{ (race.schedule.fp1.date + 'T' + race.schedule.fp1.time) | date:'dd'
+          }}-{{ (race.schedule.race.date + 'T' + race.schedule.race.time) |
+          date:'dd' }} <br />
           <ion-chip>{{ race.schedule.race.date | date: 'MMM'}}</ion-chip>
         </ion-col>
 
@@ -32,7 +33,6 @@
             <ion-card-subtitle class="country">
               {{ race.circuit.country }}
             </ion-card-subtitle>
-
           </ion-card-header>
 
           <ion-card-content class="content">

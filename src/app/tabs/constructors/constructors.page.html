@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title Class = "toolBarHeader">CONSTRUCTORS</ion-title>
+    <ion-title>CONSTRUCTORS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,10 +9,11 @@
     <ion-card-header>
       <div class="flex-container">
         <div>
-          <ion-card-title class = "proper-case">
-             {{ standing.teamId.replace('_', ' ').replace('rb', 'Racing Bulls') }}</ion-card-title>
-             <ion-card-subtitle> {{ standing.team.country }}</ion-card-subtitle>
-             
+          <ion-card-title class="proper-case">
+            {{ standing.teamId.replace('_', ' ').replace('rb', 'Racing Bulls')
+            }}</ion-card-title
+          >
+          <ion-card-subtitle> {{ standing.team.country }}</ion-card-subtitle>
         </div>
         <img
           *ngIf="i < 3"

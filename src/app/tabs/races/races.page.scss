@@ -1,17 +1,10 @@
-.header {
-  font-size: 28px;
-  font-weight: bolder;
-  margin-top: 12px;
-  padding-left: 20px;
-}
-
 .chevronColumn {
-    display: flex;       
-    justify-content: flex-end; 
-    align-items: center;        
-    padding-right: 10px;    
-    min-width: 0;   
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  min-width: 0;
+}
 
 .chevron {
   color: rgb(231, 35, 35);
@@ -60,7 +53,11 @@
   align-items: center;
   flex-direction: column;
   border: 2px solid rgb(231, 35, 35);
-  background: linear-gradient(90deg, rgba(231,35,35,0.15) 0%, rgba(231,35,35,0.05) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(231, 35, 35, 0.15) 0%,
+    rgba(231, 35, 35, 0.05) 100%
+  );
   color: rgb(231, 35, 35);
   font-weight: bold;
   box-shadow: 0 2px 8px rgba(231, 35, 35, 0.08);
@@ -80,4 +77,3 @@
   border: 3px solid rgb(231, 35, 35);
   box-shadow: 0 0 12px rgb(231, 35, 35);
 }
-
