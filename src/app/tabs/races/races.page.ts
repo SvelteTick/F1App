@@ -41,8 +41,6 @@ import { NotificationService } from 'src/app/services/notification.service';
   styleUrls: ['./races.page.scss'],
   standalone: true,
   imports: [
-    IonButtons,
-    IonButton,
     IonHeader,
     IonChip,
     IonIcon,
