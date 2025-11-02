@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { NotificationService } from './services/notification.service';
 import { FOneApiService } from './api/fone-api.service';
+import { Capacitor } from '@capacitor/core';
+import { StatusBar } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,18 @@ export class AppComponent implements OnInit {
     await this.platform.ready();
     await this.notificationService.ensurePermissions();
     await this.scheduleNextRaceReminder();
-    // await this.testNotification();
+
+    // overlay header bar fix and set color
+     if (Capacitor.isNativePlatform()) {
+      try {
+        if ((StatusBar as any).setOverlaysContent) {
+          await (StatusBar as any).setOverlaysContent({ overlay: false });
+        }
+        if ((StatusBar as any).setBackgroundColor) {
+          await (StatusBar as any).setBackgroundColor({ color: '#E72323' });
+        }
+      } catch (e) {}
+    }
   }
 
   private async testNotification() {
